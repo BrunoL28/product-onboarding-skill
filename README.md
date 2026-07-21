@@ -54,13 +54,14 @@ turn it into a PRD and backlog"*, or *"bootstrap this product from scratch"*.
 
 ## Notes & attribution
 
-- The 11 bundled sub-skills are adapted from Anthropic's product-management
-  example skills (several originate from the `deanpeters/product-manager-prompts`
-  project, as noted in each skill's `Provenance`). They are bundled here only to
-  make the orchestrator self-contained; upstream remains the source of truth.
-- Only each sub-skill's `SKILL.md` is vendored. Their optional `template.md` /
-  `examples/` companion files are **not** bundled (kept lean) — pull them from
-  upstream if you want the fill-in templates.
+- The 11 bundled sub-skills are **adapted, condensed copies** of Anthropic's
+  product-management example skills (several originate from the
+  `deanpeters/product-manager-prompts` project, as noted in each skill's
+  provenance). They preserve each skill's method, structure, and triggering
+  `description`, but are trimmed for a lean bundle — they are not verbatim
+  reproductions. Upstream remains the source of truth; swap in the full upstream
+  `SKILL.md` (plus its `template.md` / `examples/`) if you want the complete
+  originals.
 - Four sub-skills (`lean-ux-canvas`, `prd-development`, `roadmap-planning`,
   `product-strategy-session`) and `epic-breakdown-advisor` reference an optional
   `workshop-facilitation` skill for their guided-conversation protocol. They
