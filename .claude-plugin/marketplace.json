@@ -1,0 +1,11 @@
+{
+  "name": "meerkat-product",
+  "owner": { "name": "Bruno Lima Soares" },
+  "plugins": [
+    {
+      "name": "product-onboarding",
+      "source": ".",
+      "description": "End-to-end product onboarding orchestrator + 11 bundled product skills."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "product-onboarding",
+  "version": "0.1.0",
+  "description": "Onboard a new product end to end (discovery → requirements → PRD → backlog → strategy) by orchestrating 11 bundled product-management skills.",
+  "author": { "name": "Bruno Lima Soares" },
+  "license": "MIT"
+}
