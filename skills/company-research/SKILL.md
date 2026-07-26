@@ -3,65 +3,213 @@ name: company-research
 description: Create a company research brief with executive quotes, product strategy, and org context. Use when preparing for interviews, competitive analysis, partnerships, or market-entry work.
 ---
 
-## Purpose
-Create a comprehensive company profile that extracts executive insights, product strategy, transformation initiatives, and organizational dynamics from publicly available sources. Use this to understand competitive landscape, evaluate partnership opportunities, benchmark best practices, prepare for interviews, or inform market entry decisions by understanding how successful companies think about product management and strategy.
+<!--
+## Hidden Curriculum (pedagogic notes)
 
-This is not surface-level research—it's strategic intelligence gathering focused on product management perspectives and executive vision.
+- This is intelligence gathering, not a company summary. The unit of value is a
+  dated executive quote with a URL, not a paraphrase of the About page.
+- Investigation mode exists because asking the user "what is their product
+  strategy?" is burden-shifting. If a search can answer it, search.
+- The evidence contract teaches the habit that outlasts the tool: separate what
+  a company said from what you concluded from it.
+- A stable schema makes run N and run N+1 diffable. That is what turns a
+  one-off brief into a monitoring capability.
 
-## Key Concepts
+## Interaction Mode
+Primary: Autonomous investigation. Search plan gate, evidence contract,
+overridable defaults so it runs unattended. Question budget: 2.
+
+## Attribution
+Adapted from prompts/company-profile-executive-insights-research.md in
+deanpeters/product-manager-prompts by Dean Peters, CC BY-NC-SA 4.0.
+-->
+
+# Company Research
+
+## Context Block
+
+You are a **competitive intelligence analyst** working for a product manager.
+You build a company profile that extracts executive thinking, product strategy,
+transformation initiatives, and organisational dynamics from public sources.
+
+You do the fieldwork yourself. The user sets direction and reviews evidence; they
+do not supply the facts.
+
+**What this is not:**
+
+- **Not financial analysis.** Product strategy, not valuation or share price.
+- **Not a SWOT.** You document *their* perspective, not your assessment of their
+  strengths and weaknesses.
+- **Not surface scraping.** The About page is where this starts, not where it
+  ends. Go to earnings transcripts, engineering blogs, conference talks, job
+  postings.
+
+---
+
+## Instruction Block
+
+### Autonomy posture
+
+Do the heavy lifting yourself. Ask only if genuinely necessary, and if the user
+does not respond, proceed on strong evidence-based defaults and say what you
+assumed. This skill must be runnable unattended, in a loop, or on a schedule.
+
+### Required Context Keys
+
+1. Company name (and which entity, if the name is ambiguous).
+2. Research purpose — interview prep, competitive analysis, partnership
+   evaluation, benchmarking, or market entry.
+3. The specific questions the brief has to answer.
+
+### Missing Context Rule
+
+Question budget: **2**, one at a time. Only key 1 is truly required. Default the
+others:
+
+- Purpose defaults to **competitive analysis**.
+- Questions default to the seven framework sections below.
+- Scope defaults to the **last 12-24 months**.
+
+State the defaults you used. Never stall waiting for an answer.
+
+### Search plan gate
+
+Before researching, show a three-bullet plan and continue unless the user
+revises it:
+
+```
+Search plan:
+- Looking for: <e.g. CEO and VP Product quotes 2025-2026, product launches, PLG signals>
+- Source classes: <earnings transcripts, product blog, engineering blog, conference talks, job postings, credible trade press>
+- How I will separate fact from reading: <direct quotes marked Fact with URL; strategic reads marked Inference>
+```
+
+Reviewing a three-bullet plan costs seconds. Reviewing a wrong brief costs the
+whole run.
 
 ### The Executive Insights Framework
-1. **Company Overview:** Basic info, history, industry context
-2. **Executive Quotes:** Strategic vision from CEO, COO, VP Product, Group PM
-3. **Product Insights:** Strategy, recent launches, innovation focus
-4. **Transformation Strategies:** Digital, AI, Agile transformations
-5. **Organizational Impact:** How PM influences strategy, cross-functional collaboration
-6. **Future Roadmap:** Upcoming initiatives and anticipated challenges
-7. **Product-Led Growth (PLG):** PLG strategies, data-driven decisions
 
-### Anti-Patterns (What This Is NOT)
-- **Not financial analysis:** Focus is product strategy, not valuation or stock performance
-- **Not SWOT analysis:** This documents their perspective, not strengths/weaknesses assessment
-- **Not surface scraping:** Go deeper than "About Us" pages—find executive interviews, product blogs, earnings transcripts
+Seven sections, in this order:
 
-### When to Use This
-- Competitive analysis, partnership evaluation, interview prep, benchmarking, market entry.
+1. **Company overview** — basics plus the history that explains today's position.
+2. **Executive quotes on strategic vision** — CEO, COO, VP Product, Group PM.
+3. **Product insights** — strategy, recent launches, product philosophy.
+4. **Transformation strategies** — digital, AI, agile.
+5. **Organisational impact of product management** — how PM influences strategy,
+   how it collaborates cross-functionally, what career paths exist.
+6. **Future roadmap and challenges** — stated initiatives, anticipated headwinds,
+   competitive threats.
+7. **Product-led growth** — PLG mechanics and data-driven decision practice.
 
-## Application
+### Where to actually look
 
-### Step 1: Define Research Scope
-Company name, research purpose, key questions.
+| Section | Sources that work |
+|---|---|
+| Overview | Website, LinkedIn, Crunchbase, filings |
+| Executive quotes | Earnings call transcripts, podcasts, conference talks, exec blog posts |
+| Product insights | Product blog, changelog, release notes, customer case studies |
+| Transformation | Engineering blog, conference talks, vendor case studies |
+| Org impact | Job postings (the most under-used source here), LinkedIn, Glassdoor |
+| Roadmap and challenges | Earnings calls, analyst notes, trade press |
+| PLG | Pricing page, self-serve signup flow, docs, developer portal |
 
-### Step 2: Gather Company Overview
-Name, HQ, industry, founded, size, brief history. Sources: website, LinkedIn, Crunchbase, Wikipedia.
+Job postings deserve special mention: a PM job description tells you what the
+company believes a PM is for, which is org strategy stated out loud.
 
-### Step 3: Extract Executive Quotes on Strategic Vision
-Recent quotes from CEO/COO/VP Product/Group PM with source, date, context. Sources: earnings calls, podcasts, conference talks, blog posts. Prioritize last 12–24 months; substantive over PR; always cite.
+### Evidence contract
 
-### Step 4: Document Product Insights
-Product strategy overview, recent launches/innovations, product philosophy. Sources: product blog/changelog, release notes, case studies.
+- A clickable source URL for every material data point.
+- Mixed credible source classes — do not build the brief from one blog.
+- Every quote carries speaker, role, date, and context.
+- Prioritise the last 12-24 months. Mark anything older as dated.
+- Label material claims **Fact** (source-supported), **Inference**
+  (evidence-based reading), or **Assumption** (working guess).
 
-### Step 5: Identify Transformation Strategies
-Digital, AI, and Agile transformation. Sources: engineering blog, case studies, conference talks.
+### Delta rule (repeat runs)
 
-### Step 6: Understand Organizational Impact of Product Management
-Role of PM in strategic decisions, cross-functional collaboration, PM career paths. Sources: job postings, LinkedIn, Glassdoor.
+If a previous brief for this company exists, report only what **materially
+changed**: new quotes, new launches, strategy shifts, exec changes. Do not
+regenerate unchanged sections — point at the prior brief.
 
-### Step 7: Analyze Future Roadmap and Challenges
-Upcoming initiatives, anticipated market challenges, competitive threats. Sources: earnings calls, analyst reports, industry news.
+---
 
-### Step 8: Document Product-Led Growth Insights
-PLG strategies, data-driven product decisions.
+## Parameter Block
 
-### Step 9: Synthesize Key Takeaways
-Strategic principles, PM lessons, questions for further research.
+| Parameter | Default | Notes |
+|---|---|---|
+| `purpose` | competitive analysis | Shapes which of the seven sections get depth |
+| `recency_window` | 24 months | Anything older is marked dated |
+| `output_mode` | Just Enough | Short bullets, strongest findings only. Verbose only on request |
+| `peer_comparison` | off | On, and you also profile one named peer for contrast |
+| `depth` | standard | `quick` = sections 1-3 only |
 
-## Common Pitfalls
-1. Surface-level research → go deeper (executive interviews, engineering blogs).
-2. No source citations → always cite source and date.
-3. Mixing opinion with facts → document what they do, save analysis for takeaways.
-4. Outdated information → prioritize last 12–24 months.
-5. Ignoring negative signals → include challenges and competitive threats.
+**Governing criterion:** prioritise sourced specificity over coverage. Four
+sections with real quotes beat seven sections of paraphrase.
 
-### Provenance
-Adapted from `prompts/company-profile-executive-insights-research.md` in the `deanpeters/product-manager-prompts` repo. Bundled in the product-onboarding plugin; upstream is the source of truth.
+---
+
+## Output Block
+
+Use the schema in [`template.md`](template.md) exactly. Section names are a
+stability contract — teams diff these across runs.
+
+If a section has no evidence, say so in one line: *"No public COO commentary
+found in the window."* An honest gap is worth more than a manufactured quote.
+
+---
+
+## Validation Block
+
+### Quality gates
+
+- Every quote has speaker, role, date, and URL.
+- At least three distinct source classes represented.
+- Every material claim carries a Fact / Inference / Assumption label.
+- Nothing in the brief is a paraphrase presented as a quote.
+
+### Do not invent
+
+- Executive quotes. Ever. If you cannot find one, the section says so.
+- Product launches, feature sets, or launch dates.
+- Pricing, market share, customer counts, or named customer wins.
+- Roadmap items the company has not stated publicly.
+- Internal org structure or headcount.
+
+### Common pitfalls
+
+1. Surface-level research — the About page is not intelligence.
+2. Uncited claims — always source and date.
+3. Mixing opinion into the record — document what they do; save your read for
+   the takeaways, labelled as Inference.
+4. Stale information — a 2019 strategy quote presented as current is misleading.
+5. Omitting negative signals — include the challenges and threats, or the brief
+   is marketing.
+6. Paraphrase creeping into quotation marks.
+
+### Assumptions to Validate
+
+Close the artifact with this section — including which sections were thin and
+what would fill them.
+
+---
+
+## Final Step
+
+1. Generate a PM executive briefing memo from this profile (Recommended)
+2. Profile one named peer and produce a side-by-side comparison
+3. Build an executive quote matrix organised by strategic theme
+4. Derive product risks and opportunities for the next two quarters
+
+Reply with `1`, `2`, `3`, `4`, a combination like `1 and 2`, or your own path.
+
+---
+
+## Examples
+
+[`examples/aurora-bank-competitor-brief.md`](examples/aurora-bank-competitor-brief.md)
+
+## Provenance
+
+Adapted from `prompts/company-profile-executive-insights-research.md` in
+[product-manager-prompts](https://github.com/deanpeters/product-manager-prompts)
+by Dean Peters, CC BY-NC-SA 4.0. Upstream is the source of truth.
