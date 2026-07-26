@@ -5,7 +5,7 @@
     {
       "name": "product-onboarding",
       "source": ".",
-      "description": "End-to-end product onboarding orchestrator + 11 bundled product skills."
+      "description": "End-to-end product onboarding orchestrator plus 11 bundled product skills, each with a stable output template and a worked example."
     }
   ]
 }
