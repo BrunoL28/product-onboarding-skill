@@ -220,6 +220,6 @@ Adapted from `prompts/user-story-splitting-prompt-template.md` and
 `prompts/backlog-epic-hypothesis.md` in
 [product-manager-prompts](https://github.com/deanpeters/product-manager-prompts)
 by Dean Peters, CC BY-NC-SA 4.0. Method: Richard Lawrence and Peter Green, *The
-Humanizing Work Guide to Splitting User Stories*. INVEST: Bill Wake. An optional
-`workshop-facilitation` skill can supply the session protocol; the domain logic
-here is self-contained.
+Humanizing Work Guide to Splitting User Stories*. INVEST: Bill Wake. The bundled
+`workshop-facilitation` skill supplies the session protocol; the domain logic here
+is self-contained.

@@ -5,7 +5,7 @@
     {
       "name": "product-onboarding",
       "source": ".",
-      "description": "End-to-end product onboarding orchestrator plus 11 bundled product skills, each with a stable output template and a worked example."
+      "description": "End-to-end product onboarding orchestrator plus 19 bundled product skills across framing, discovery, requirements and validation, PRD, delivery planning, and strategy. Each skill has a stable output template and a worked example."
     }
   ]
 }

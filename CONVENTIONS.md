@@ -199,3 +199,74 @@ Before committing a change to any skill:
 - [ ] Artifact closes with Assumptions to Validate.
 - [ ] Final Step block has exactly 4 options, recommended first.
 - [ ] Provenance and licence line present.
+- [ ] `python3 scripts/validate_skills.py <skill-name>` passes. It catches the
+      mechanical half of this list; the rest is on you. See section 11.
+
+The script is a floor, not a ceiling. A skill can pass every check and still be
+a bad skill.
+
+---
+
+## 11. The validation script
+
+`scripts/validate_skills.py` enforces the part of section 10 that a script can
+honestly verify. No dependencies, Python 3.9 or later.
+
+```
+python3 scripts/validate_skills.py             # every skill
+python3 scripts/validate_skills.py --quiet      # errors only, no warnings
+python3 scripts/validate_skills.py user-story   # one or more named skills
+```
+
+Exit code is 0 when everything passes and 1 otherwise, so it works unchanged as
+a pre-commit hook or a CI step.
+
+### What it checks
+
+Errors - these fail the run:
+
+- Frontmatter is delimited by `---`, has a `name` that matches the directory
+  name, and a `description` between 120 and 1100 characters.
+- A hidden-curriculum HTML comment exists after the frontmatter and contains
+  Hidden Curriculum, Interaction Mode, and Attribution headings.
+- Exactly one interaction mode is recognised in that comment. If more than one
+  is named, the comment must mark one `Primary:`.
+- The eight top-level headings are present and in order: Context Block,
+  Instruction Block, Parameter Block, Output Block, Validation Block, Final
+  Step, Examples, Provenance.
+- The required subheadings exist: Required Context Keys, Missing Context Rule,
+  Quality gates, Do not invent, Common pitfalls, Assumptions to Validate.
+- Final Step has exactly four options numbered 1 to 4, the first marked
+  `(Recommended)`, closing with the standard reply line.
+- The Output Block mentions `template.md`.
+- `template.md` exists, is at least 40 lines, has a fenced schema block, and has
+  a Provenance section.
+- `examples/` exists and holds at least one markdown file.
+- No emoji anywhere in `SKILL.md`.
+
+Warnings - these print with a `~` and do not fail the run:
+
+- Non-ASCII characters outside a small allowed set.
+- `SKILL.md` under 120 lines (probably still a stub) or over 320 lines
+  (probably hoarding detail that belongs in `template.md`).
+- An example under 60 lines, or an example with no sign of the conversation -
+  only the finished artifact.
+- `template.md` that never mentions Assumptions to Validate.
+
+### What it cannot check
+
+Everything that matters most:
+
+- Whether the do-not-invent list is genuinely domain-specific, or a generic
+  "do not fabricate" wearing a hat.
+- Whether the declared interaction mode is the *right* one - the
+  burden-shifting test in section 4 is a judgement call.
+- Whether the facilitation options sharpen turn over turn, or could all have
+  been written before the conversation started.
+- Whether the worked example teaches the method or merely demonstrates the
+  output format.
+- Whether a template change is a labelled new version with a migration note, or
+  a silent rename.
+
+Run the script, then run the checklist. Passing the script means the skill is
+shaped correctly. Only a reader can tell you it is any good.

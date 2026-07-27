@@ -216,5 +216,5 @@ Adapted from `prompts/prd-prompt-template.md` and `workshops/prd-workshop.md` in
 [product-manager-prompts](https://github.com/deanpeters/product-manager-prompts)
 by Dean Peters, CC BY-NC-SA 4.0. Framework grounding: Martin Eriksson, *How to
 Write a Good PRD*; Marty Cagan, *Inspired*; Amazon Working Backwards. Orchestrates
-`problem-statement`, `proto-persona`, `user-story`, `epic-breakdown-advisor`. An
-optional `workshop-facilitation` skill can supply the interaction protocol.
+`problem-statement`, `proto-persona`, `user-story`, `epic-breakdown-advisor`. The
+bundled `workshop-facilitation` skill supplies the interaction protocol.

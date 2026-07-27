@@ -1,7 +1,7 @@
 {
   "name": "product-onboarding",
-  "version": "0.2.0",
-  "description": "Onboard a new product end to end (discovery -> requirements -> PRD -> backlog -> strategy) by orchestrating 11 bundled product-management skills. Every skill ships with a stable output template and a worked example.",
+  "version": "0.3.0",
+  "description": "Onboard a new product end to end (framing -> discovery -> requirements and validation -> PRD -> backlog -> strategy) by orchestrating 19 bundled product-management skills. Every skill ships with a stable output template and a worked example against one running product.",
   "author": { "name": "Bruno Lima Soares" },
   "homepage": "https://github.com/BrunoL28/product-onboarding-skill",
   "repository": "https://github.com/BrunoL28/product-onboarding-skill",
@@ -14,6 +14,12 @@
     "roadmap",
     "lean-ux",
     "pestel",
-    "backlog"
+    "backlog",
+    "positioning",
+    "jobs-to-be-done",
+    "market-sizing",
+    "opportunity-solution-tree",
+    "prioritization",
+    "product-strategy"
   ]
 }

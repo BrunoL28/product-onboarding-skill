@@ -1,0 +1,110 @@
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+(CC BY-NC-SA 4.0)
+
+This licence covers the parts of this repository adapted from
+product-manager-prompts by Dean Peters: the sub-skills listed as
+adapted work in ATTRIBUTION.md, and CONVENTIONS.md. The MIT-licensed
+parts are listed in LICENSE.
+
+Full legal code:
+  https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+Human-readable deed:
+  https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+The legal code at that URL is the licence. What follows is the official
+deed summary and the attribution notice, reproduced for convenience. If
+this file and the legal code ever disagree, the legal code wins.
+
+-----------------------------------------------------------------------
+YOU ARE FREE TO
+-----------------------------------------------------------------------
+
+Share -- copy and redistribute the material in any medium or format.
+
+Adapt -- remix, transform, and build upon the material.
+
+The licensor cannot revoke these freedoms as long as you follow the
+licence terms.
+
+-----------------------------------------------------------------------
+UNDER THE FOLLOWING TERMS
+-----------------------------------------------------------------------
+
+Attribution -- You must give appropriate credit, provide a link to the
+licence, and indicate if changes were made. You may do so in any
+reasonable manner, but not in any way that suggests the licensor
+endorses you or your use.
+
+NonCommercial -- You may not use the material for commercial purposes.
+
+ShareAlike -- If you remix, transform, or build upon the material, you
+must distribute your contributions under the same licence as the
+original.
+
+No additional restrictions -- You may not apply legal terms or
+technological measures that legally restrict others from doing anything
+the licence permits.
+
+-----------------------------------------------------------------------
+NOTICES
+-----------------------------------------------------------------------
+
+You do not have to comply with the licence for elements of the material
+in the public domain or where your use is permitted by an applicable
+exception or limitation.
+
+No warranties are given. The licence may not give you all of the
+permissions necessary for your intended use. For example, other rights
+such as publicity, privacy, or moral rights may limit how you use the
+material.
+
+-----------------------------------------------------------------------
+ATTRIBUTION NOTICE
+-----------------------------------------------------------------------
+
+Adapted from product-manager-prompts
+(https://github.com/deanpeters/product-manager-prompts) by Dean Peters,
+CC BY-NC-SA 4.0. Changes were made: the source prompts were
+restructured into Claude skills following the Five-Block architecture
+in CONVENTIONS.md, given stable output templates, and given worked
+examples against a single fictional running product. Each adapted
+skill names its upstream source file in its own `## Provenance`
+section.
+
+Individual prompts upstream carry their own attribution fields
+crediting the frameworks and thinkers behind them. Those fields have
+been kept in the adapted skills and must stay intact in anything you
+build from this.
+
+-----------------------------------------------------------------------
+IF YOU ARE FORKING THIS REPOSITORY
+-----------------------------------------------------------------------
+
+The two terms most likely to bite you, in plain language:
+
+ShareAlike. If you change an adapted skill and then share the result --
+publish the fork, hand it to another team, ship it inside another
+plugin -- your version of that skill must also be CC BY-NC-SA 4.0. You
+cannot relicense it as MIT, Apache, or proprietary. You can keep your
+own MIT-licensed code alongside it, which is exactly what this
+repository does, as long as the boundary stays documented. Combining an
+adapted skill with new material of your own produces an adaptation, and
+the adaptation carries the licence.
+
+NonCommercial. You may not use the adapted material primarily for
+commercial advantage or monetary compensation. Concretely, per the
+upstream LICENSING.md, expressed written permission from Dean Peters is
+required to sell this material or an adaptation of it, bundle it into a
+paid product or service, use it as material for paid training, courses,
+or consulting deliverables, or put it behind a paywall, login, or
+lead-capture wall.
+
+Using these skills for your own product work, adapting them for your
+team, and sharing them onward under the same licence are explicitly
+encouraged. Commercial use is not forbidden forever -- it starts with
+asking Dean Peters.
+
+This section is a plain-language summary written by the repository
+maintainer, not legal advice. If your use might be commercial, read the
+legal code and ask.

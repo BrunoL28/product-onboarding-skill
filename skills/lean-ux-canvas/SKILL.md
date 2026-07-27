@@ -195,5 +195,5 @@ Adapted from `prompts/lean-ux-canvas-prompt-template.md` and
 `workshops/lean-ux-canvas-workshop.md` in
 [product-manager-prompts](https://github.com/deanpeters/product-manager-prompts)
 by Dean Peters, CC BY-NC-SA 4.0. Canvas by Jeff Gothelf, *Lean UX* (O'Reilly).
-When run as a guided conversation an optional `workshop-facilitation` skill can
-supply the interaction protocol; the domain logic here is self-contained.
+When run as a guided conversation the bundled `workshop-facilitation` skill
+supplies the interaction protocol; the domain logic here is self-contained.
