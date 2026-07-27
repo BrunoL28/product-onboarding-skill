@@ -1,8 +1,9 @@
 # Product Onboarding - Output Templates
 
-The orchestrator emits four things of its own: the `INDEX.md` state file, a
-phase-gate summary, a phase handoff block, and the closing readout. Sub-skill
-artifacts use their own `template.md`.
+The orchestrator emits six things of its own: the `INDEX.md` state file, the
+`MEASUREMENT.md` thread, a phase-gate summary, a phase handoff block, a
+gate-failure record, and the closing readout. Sub-skill artifacts use their own
+`template.md`.
 
 **Template stability.** These are contracts. Improve the facilitation freely;
 change a section name only as a labelled new version with a migration note.
@@ -23,6 +24,7 @@ Written at kickoff, updated at the end of every phase. This is the resume point.
 - **Started**: <YYYY-MM-DD>
 - **Last updated**: <YYYY-MM-DD>
 - **Depth**: standard | express
+- **Facilitation**: solo | room
 - **Board target**: none | nextcloud-deck | jira | linear
 - **Working language**: <language>
 
@@ -30,27 +32,38 @@ Written at kickoff, updated at the end of every phase. This is the resume point.
 
 | # | Phase | Artifact | Status | Updated | Notes |
 |---|---|---|---|---|---|
-| 1 | Discovery | COMPANY_RESEARCH.md | pending / in-progress / done | | |
-| 2 | Discovery | PESTEL.md | pending | | |
-| 3 | Discovery | PROTO_PERSONA.md | pending | | |
-| 4 | Discovery | PROBLEM_STATEMENT.md | pending | | |
-| 5 | Requirements | LEAN_UX_CANVAS.md | pending | | |
-| 6 | Requirements | USER_STORY_MAP.md | pending | | |
-| 7 | Requirements | SPEC.md | pending | | |
-| 8 | PRD | PRD.md | pending | | |
-| 9 | Delivery | EPIC_BREAKDOWN.md | pending | | |
-| 10 | Delivery | board_import.csv | pending | | |
-| 11 | Delivery | ROADMAP.md | pending | | |
-| 12 | Strategy | STRATEGY_SESSION.md | pending | | |
+| 1 | 0 Framing | POSITIONING.md | pending / in-progress / done | | |
+| 2 | 0 Framing | JTBD.md | pending | | |
+| 3 | 1 Discovery | COMPANY_RESEARCH.md | pending | | |
+| 4 | 1 Discovery | PESTEL.md | pending | | |
+| 5 | 1 Discovery | MARKET_SIZING.md | pending | | |
+| 6 | 1 Discovery | PROTO_PERSONA.md | pending | | |
+| 7 | 1 Discovery | PROBLEM_STATEMENT.md | pending | | |
+| 8 | 2 Requirements | LEAN_UX_CANVAS.md | pending | | |
+| 9 | 2 Requirements | OPPORTUNITY_TREE.md | pending | | |
+| 10 | 2 Requirements | POL_PROBES.md | pending | | |
+| 11 | 2 Requirements | USER_STORY_MAP.md | pending | | |
+| 12 | 2 Requirements | SPEC.md | pending | | |
+| 13 | 3 PRD | PRD.md | pending | | |
+| 14 | 4 Delivery | EPIC_HYPOTHESES.md | pending | | |
+| 15 | 4 Delivery | PRIORITIZATION.md | pending | | |
+| 16 | 4 Delivery | EPIC_BREAKDOWN.md | pending | | |
+| 17 | 4 Delivery | board_import.csv | pending | | |
+| 18 | 4 Delivery | ROADMAP.md | pending | | |
+| 19 | 5 Strategy | STRATEGY_SESSION.md | pending | | |
+| 20 | 0-4 | MEASUREMENT.md | pending | | thread, not a phase |
 
 ## Gates passed
 
-| Phase | Gate question | Passed on | Confirmed by |
-|---|---|---|---|
-| 1 | Does the problem statement resonate? | | |
-| 2 | Is the scope and the non-goals list agreed? | | |
-| 3 | Is the PRD reviewed, with open decisions still open? | | |
-| 4 | Is the sequence credible to engineering? | | |
+Append a row per attempt. Never overwrite a failed attempt.
+
+| Phase | Gate question | Result | Date | Confirmed by | Reason if failed |
+|---|---|---|---|---|---|
+| 0 | Can we name the customer and the job without naming the product? | | | | |
+| 1 | Does the problem statement resonate with someone who lives it? | | | | |
+| 2 | Is scope agreed, and does the riskiest assumption have an owned probe? | | | | |
+| 3 | Is the PRD reviewed, with open decisions still open? | | | | |
+| 4 | Is the sequence credible to engineering? | | | | |
 
 ## Open decisions
 
@@ -65,7 +78,66 @@ Written at kickoff, updated at the end of every phase. This is the resume point.
 
 ---
 
-## 2. Phase-gate summary block
+## 2. MEASUREMENT.md - the thread
+
+Filled across phases, not at the end. Each row advances one column per phase, so
+an empty cell is a visible gap rather than a silent one.
+
+```markdown
+# <Product Name> - Measurement Thread
+
+A metric is not real until it has all five columns. Baseline comes from Phase 1,
+target and guardrail from Phase 2, instrument from Phase 3, read-out from
+Phase 4.
+
+## Primary metrics
+
+| Metric | Baseline (+ source) | Target | Instrument | Read-out date | Owner |
+|---|---|---|---|---|---|
+| <name> | <value> - <source, or [ASSUMPTION]> | <value by when> | <event, query, dashboard> | <YYYY-MM-DD> | <name> |
+
+## Guardrail metrics
+
+Things that must not move the wrong way while the primary metric improves.
+
+| Guardrail | Baseline (+ source) | Must stay | Instrument | Owner |
+|---|---|---|---|---|
+
+## Not measured, and why
+
+- <thing everyone will ask about> - <why it is not instrumented in v1>
+
+## Assumptions to Validate
+
+- <every baseline tagged [ASSUMPTION] belongs here>
+```
+
+---
+
+## 3. Phase handoff block
+
+Opens each phase. It makes the chain auditable: if a phase cannot cite the one
+before it, the chain is broken.
+
+```markdown
+### Starting Phase <N>: <phase name>
+
+**Carrying forward**
+- From <ARTIFACT.md>: <the specific line or finding this phase depends on>
+
+**Sub-skills in this phase**
+- <skill-name> -> <artifact it will produce>
+
+**Measurement thread advances to**
+- <baseline | target and guardrail | instrument | read-out date>
+
+**Not yet resolved, and this phase will not resolve it**
+- <item> - stays open
+```
+
+---
+
+## 4. Phase-gate summary block
 
 Emitted at the end of every phase. Sticky-Note Rule applies: 4-8 words a bullet,
 ASCII only.
@@ -100,27 +172,35 @@ Reply with `1`, `2`, `3`, `4`, or your own path.
 
 ---
 
-## 3. Phase handoff block
+## 5. Gate-failure record
 
-Opens each phase. It makes the chain auditable: if a phase cannot cite the one
-before it, the chain is broken.
+Written when a gate does not pass. Appended to `INDEX.md`, never overwritten.
 
 ```markdown
-### Starting Phase <N>: <phase name>
+### Phase <N> gate NOT passed - <YYYY-MM-DD>
 
-**Carrying forward**
-- From <ARTIFACT.md>: <the specific line or finding this phase depends on>
+**Gate question**: <the question>
+**Answer**: no
+**Stated reason**: <in the reviewer's words, not paraphrased>
 
-**Sub-skills in this phase**
-- <skill-name> -> <artifact it will produce>
+**Smallest thing that would change the answer**
+- <one specific missing piece of evidence or one decision>
 
-**Not yet resolved, and this phase will not resolve it**
-- <item> - stays open
+**Paths**
+1. Fix <the specific gap> and re-gate (Recommended)
+2. Proceed with the gap recorded as a labelled risk, carried into
+   STRATEGY_SESSION.md
+3. Stop here and hand off what exists
+
+**If path 2 is taken**: this is a decision. Record it below.
+
+| Decision | Owner | Date | Risk carried |
+|---|---|---|---|
 ```
 
 ---
 
-## 4. Closing readout
+## 6. Closing readout
 
 ```markdown
 # <Product Name> - Onboarding Readout
@@ -128,18 +208,28 @@ before it, the chain is broken.
 ## The problem
 <Two sentences, in the persona's language.>
 
+## Who it is for, and the job it does
+<One sentence each, from POSITIONING.md and JTBD.md.>
+
 ## The scoped v1
 <What is in, in one paragraph. Then the three loudest non-goals.>
 
 ## How it gets built
 <Walking skeleton first, then the release sequence in one line each.>
 
+## How we will know it worked
+<The primary metric with its baseline, target, instrument, and read-out date.>
+
 ## Riskiest assumption
-<The one that would invalidate the most work, and the cheapest test for it.>
+<The one that would invalidate the most work, its probe, and the probe's status.>
 
 ## Decisions needing an owner
 | Decision | Owner | Needed by | Blocking? |
 |---|---|---|---|
+
+## Gates not passed
+| Phase | Reason | Risk carried |
+|---|---|---|
 
 ## Artifact set
 <Table from INDEX.md.>
