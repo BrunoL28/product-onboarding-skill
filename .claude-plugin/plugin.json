@@ -1,5 +1,7 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "product-onboarding",
+  "displayName": "Product Onboarding",
   "version": "0.3.0",
   "description": "Onboard a new product end to end (framing -> discovery -> requirements and validation -> PRD -> backlog -> strategy) by orchestrating 19 bundled product-management skills. Every skill ships with a stable output template and a worked example against one running product.",
   "author": { "name": "Bruno Lima Soares" },

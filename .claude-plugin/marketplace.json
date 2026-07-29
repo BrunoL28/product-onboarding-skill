@@ -1,11 +1,30 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "meerkat-product",
-  "owner": { "name": "Bruno Lima Soares" },
+  "version": "0.3.0",
+  "description": "Meerkat product-management marketplace: an end-to-end product onboarding orchestrator with 19 bundled product skills.",
+  "owner": {
+    "name": "Bruno Lima Soares",
+    "url": "https://github.com/BrunoL28"
+  },
   "plugins": [
     {
       "name": "product-onboarding",
-      "source": ".",
-      "description": "End-to-end product onboarding orchestrator plus 19 bundled product skills across framing, discovery, requirements and validation, PRD, delivery planning, and strategy. Each skill has a stable output template and a worked example."
+      "source": "./",
+      "description": "End-to-end product onboarding orchestrator plus 19 bundled product skills across framing, discovery, requirements and validation, PRD, delivery planning, and strategy. Each skill has a stable output template and a worked example.",
+      "version": "0.3.0",
+      "author": { "name": "Bruno Lima Soares" },
+      "homepage": "https://github.com/BrunoL28/product-onboarding-skill",
+      "category": "productivity",
+      "tags": [
+        "product-management",
+        "discovery",
+        "prd",
+        "user-stories",
+        "roadmap",
+        "backlog",
+        "product-strategy"
+      ]
     }
   ]
 }
